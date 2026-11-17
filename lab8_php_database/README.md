@@ -1,8 +1,8 @@
 # Lab8Web - PHP dan Database MySQL (CRUD Data Barang)
 
-Nama : (isi nama)
-NIM  : (isi NIM)
-Kelas: (isi kelas)
+Nama : Jezen Dwiki Erlangga
+NIM  : 312510106
+Kelas: I252A
 
 Praktikum 8 Pemrograman Web: membuat aplikasi CRUD sederhana dengan PHP dan MySQL (XAMPP).
 
@@ -24,13 +24,15 @@ lab8_php_database/
 
 Buka XAMPP Control Panel, lalu klik **Start** pada modul **Apache** dan **MySQL** sampai statusnya berwarna hijau.
 
-![XAMPP Control](screenshot/01_xampp.png)
+<img width="826" height="537" alt="Screenshot 2026-11-17 231748" src="https://github.com/user-attachments/assets/fd39b507-a1d2-42c5-9066-721ad19516be" />
+
 
 ## 2. Mengakses phpMyAdmin
 
 Buka browser dan akses `http://localhost/phpmyadmin/`. phpMyAdmin dipakai untuk mengelola database MySQL lewat tampilan web.
 
-![phpMyAdmin](screenshot/02_phpmyadmin.png)
+<img width="1920" height="1080" alt="Screenshot (298)" src="https://github.com/user-attachments/assets/14a98c82-c2cb-4c3a-81fb-3cfbc323e769" />
+
 
 ## 3. Membuat Database dan Tabel
 
@@ -52,7 +54,10 @@ CREATE TABLE data_barang (
 
 Penjelasan: `id_barang` adalah primary key yang naik otomatis (auto_increment), sedangkan kolom lain menyimpan kategori, nama, nama file gambar, harga beli, harga jual, dan stok barang.
 
-![Membuat tabel](screenshot/03_buat_tabel.png)
+
+<img width="1342" height="463" alt="Screenshot 2026-11-17 234115" src="https://github.com/user-attachments/assets/bd2eee5c-7bde-43cc-99cc-9e5e22a2e756" />
+
+
 
 ## 4. Menambahkan Data Awal
 
@@ -66,43 +71,56 @@ VALUES
 
 Data dicek dengan `SELECT * FROM data_barang;`.
 
-![Data barang](screenshot/04_data_barang.png)
+<img width="1161" height="600" alt="Screenshot 2026-11-17 231859" src="https://github.com/user-attachments/assets/63747969-448d-4242-94a4-50766efda0bf" />
+
 
 ## 5. Membuat Folder Project
 
 Buat folder `lab8_php_database` di `htdocs` (contoh: `d:\xampp\htdocs\lab8_php_database`), lalu akses lewat `http://localhost/lab8_php_database/`.
 
-![Direktori lab8](screenshot/05_direktori.png)
+<img width="1920" height="1080" alt="Screenshot (299)" src="https://github.com/user-attachments/assets/8dcd3d43-0b54-46c6-8613-f14e2fa059f8" />
+
 
 ## 6. File Koneksi Database (`koneksi.php`)
 
 File ini membuat koneksi ke MySQL memakai `mysqli_connect()` dengan host `localhost`, user `root`, password kosong, dan database `latihan1`. Jika koneksi gagal, program menampilkan pesan lalu berhenti (`die()`). File ini di-include oleh file lain yang butuh akses database.
 
-![Tes koneksi](screenshot/06_koneksi.png)
+<img width="1920" height="1080" alt="Screenshot (287)" src="https://github.com/user-attachments/assets/9b607dbc-68d7-4554-9310-d992106f9b6e" />
+
 
 ## 7. Menampilkan Data / Read (`index.php`)
 
 `index.php` menjalankan `SELECT * FROM data_barang`, lalu hasilnya diulang dengan `while` + `mysqli_fetch_array()` dan ditampilkan dalam tabel. Setiap baris punya tautan **Ubah** dan **Hapus**, dan di atas tabel ada tautan **Tambah Barang**.
 
-![Tampilan index](screenshot/07_index.png)
+
+<img width="1920" height="1080" alt="Screenshot (292)" src="https://github.com/user-attachments/assets/d121f531-1bbb-4144-8a07-711fa16b58e9" />
+
+
 
 ## 8. Menambah Data / Create (`tambah.php`)
 
 Form berisi nama, kategori, harga jual, harga beli, stok, dan upload gambar (`enctype="multipart/form-data"`). Saat tombol **Simpan** diklik, data dikirim lewat `POST`, gambar dipindahkan ke folder `gambar/` dengan `move_uploaded_file()`, lalu data disimpan dengan query `INSERT`. Setelah itu halaman diarahkan kembali ke `index.php`.
 
-![Tambah barang](screenshot/08_tambah.png)
+<img width="1920" height="1080" alt="Screenshot (300)" src="https://github.com/user-attachments/assets/4f5c7439-db38-4260-8ab8-6860b1dcafaf" />
+<img width="1920" height="1080" alt="Screenshot (294)" src="https://github.com/user-attachments/assets/5437983f-e32a-49d4-9867-cef77c1dffa0" />
+
+
 
 ## 9. Mengubah Data / Update (`ubah.php`)
 
 Halaman menerima `id` lewat `GET`, mengambil data lama dari database, dan mengisikannya ke form. Saat disimpan, query `UPDATE ... WHERE id_barang` dijalankan. Gambar hanya diperbarui kalau user memilih file baru.
 
-![Ubah barang](screenshot/09_ubah.png)
+<img width="1920" height="1080" alt="Screenshot (295)" src="https://github.com/user-attachments/assets/0f5e2eb1-62f4-4a62-9940-16e61183aad1" />
+
 
 ## 10. Menghapus Data / Delete (`hapus.php`)
 
 Halaman menerima `id` lewat `GET`, menjalankan `DELETE FROM data_barang WHERE id_barang`, lalu kembali ke `index.php`.
 
-![Hapus barang](screenshot/10_hapus.png)
+<img width="1920" height="1080" alt="Screenshot (296)" src="https://github.com/user-attachments/assets/3cde6e1a-5fde-4d7c-ba02-ef5400a4cfae" />
+<img width="1920" height="1080" alt="Screenshot (297)" src="https://github.com/user-attachments/assets/d1ea7e89-3b74-4c28-864f-25a5b7ec392a" />
+
+
 
 ## Catatan Perbaikan dari Modul
 
